@@ -3,170 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile and Assignments</title>
+    <title>Student Profile</title>
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-color: #2c2f33;
+            color: #dcdcdc;
             margin: 0;
             padding: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
-            background-color: white;
-            color: rgb(32, 32, 32);
         }
         .container {
-            display: flex;
-            align-items: center;
-            width: 90%;
+            background: #23272a;
+            width: 70%;
             max-width: 1000px;
-            margin-top: 20px;
-            background: #d1d1d1; /* Lighter grey */
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-            flex-direction: row;
-            text-align: left;
-        }
-        .header {
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            width: 100%;
-        }
-        .profile-img {
-            width: 170px; /* Increased profile image size */
-            height: 170px;
-            border-radius: 50%;
-            margin-right: 30px;
-        }
-        .profile-name {
-            font-size: 30px;
-            font-weight: bold;
-            text-align: left;
-            margin-top: -20px; /* Moved the name slightly up */
-            margin-left: 1px;
-        }
-        .profile-description {
-            font-size: 19px;
-            margin-top: 12px;
-            text-align: center;
-        }
-
-        .about {
-            margin-top: 8px;  
-        }
-        .profile-info {
-            width: 100%;
-            text-align: left;
-            margin-top: 20px;
-            background: #D1D1D1;
+            margin: 20px auto;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
         }
-
-        .assignments {
-            width: 90%;
-            max-width: 1000px;
-            margin-top: 20px;
-            background: #d1d1d1;
-            padding: 30px;
+        .profile-container {
+            display: flex;
+            align-items: center;
+            background: #2c2f33;
+            padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-            text-align: center;
-            margin-top: 20px; /* Raised the position of the Assignments text */
+        }
+        .profile {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background: #7289da;
+            flex-shrink: 0;
+        }
+        .profile img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .about {
+            margin-left: 35px;
+            flex-grow: 1;
+        }
+        .about h3 {
+            margin: 0;   
+            color: white;
+        }
+        .assignments {
+            margin-top: 20px;
+            padding: 15px;
+            background: #2c2f33;
+            border-radius: 8px;
         }
         .assignments h3 {
-            font-size: 36px; /* Increased font size for "Assignments" */
-            margin-bottom: 20px; /* Moved the title even higher */
-            margin-top: 8px;
+            color: #ffffff;
         }
-        .assignments-container {
-            width: 940px;
-            background: #e0e0e0;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-            margin-top: 25px;
-            position: relative;
-            z-index: 1;
-        }
-        .assignments-container::before {
-            content: '';
-            top: -10px;
-            left: -10px;
-            right: -10px;
-            bottom: -10px;
-            background: #b1b1b1; /* Lighter grey for the hollow effect */
-            border-radius: 10px;
-            z-index: -1;
-        }
-        a {
-            text-decoration: none;
-            color: #333;
-
-        }
-        a:hover {
-            text-decoration: underline;
-            
-        }
-        .info-container {
-            width: 100%;
-            max-width: 940px;
-            margin-top: 30px;
-            background: #e0e0e0;
+        .assignments ul {
+            list-style-type: none;
+            padding: 0;
+            }
+        .assignments li {
+            background: #7289da;
             padding: 20px;
-            padding-left: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-            text-align: left; /* Align date, pronouns, and education to the left */
+            margin: 10px 0;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
         }
-        .date, .pronouns, .education {
-            font-size: 20px; /* Increased size for date, pronouns, and education */
-            margin-bottom: 15px;
-            margin-top: 15px;
+        .assignments li a {
+            color: white;
+            text-decoration: none;
         }
-        .about-container {
-            width: 90%;
-            max-width: 1000px;
-            margin-top: 20px;
-            background: #d1d1d1;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-            text-align: center;
+
+        a {
+            color: #dcdcdc;
         }
-        .about-container h3 {
-            font-size: 36px;
+
+        .email {
+            color: #dcdcdc;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: white;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        #div-ali {
             margin-bottom: 20px;
         }
+
+        
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <img src="Pic" alt="Profile Picture" class="profile-img">
-            <div>
-                <div class="profile-name">Ali Azad DURMUŞ</div>
-                <div class="profile-description">Welcome! You can access information about me and my assignments here.</div>
+        <div class="profile-container">
+            <div class="profile">
+                <img src="c:\Users\ali06\Downloads\tck_foto_küçük.jpeg" alt="Student Photo">
+            </div>
+            <div class="about">
+                <div id ="div-ali">
+                <h2  >Ali Azad DURMUŞ</h2>
+                <p><strong>Birth:</strong> 15.08.2005</p>
+                <p><strong>Education:</strong> Hacettepe University Electrical and Electronics Engineering (Current)</p>
+                </div>
+                    <div ip ="div-contact">
+                    <h3>Contact</h3>
+                    <p class="email"><strong>Email:</strong> aliazaddurmus06@gmail.com</p>
+                    <a class="github" href="https://github.com/AliAzadDurmus" target="_blank"><strong>GitHub</strong></a>
+                    <a class="linkedin" href="https://www.linkedin.com/in/ali-azad-durmu%C5%9F-1008b729a/" target="_blank"><strong><br>LinkedIn</strong></a>
+                    </div>
             </div>
         </div>
-    </div>
-    
-    <div class="about-container">
-        <h3 class="about">About</h3>
-        <div class="info-container">
-            <p class="date"><strong>Birth: </strong>15.08.2005</p>
-            <p class="pronouns"><strong>Pronouns: </strong>he/him</p>
-            <p class="education"><strong>Education: </strong>Hacettepe University Electrical and Electronics Engineering (current)</p>
-        </div>
-    </div>
-
-    <div class="assignments">
-        <h3>Assignments</h3>
-        <div class="assignments-container">
-            <p><a href="homework1.pdf" target="_blank">Assignment1</a></p>
+        
+        <div class="assignments">
+            <h2>Assignments</h2>
+            <ul>
+                <li><a href="https://github.com/AliAzadDurmus/ELE_124">ELE_124_HW1  </a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+            </ul>
         </div>
     </div>
 </body>
